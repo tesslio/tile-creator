@@ -18,4 +18,4 @@ jobs:
       - uses: tesslio/publish@main
         with:
           token: ${{ secrets.TESSL_TOKEN }}
-          path: "./tile-creator/" # Optional, defaults to current directory
+          path: "./tile-creator/"
