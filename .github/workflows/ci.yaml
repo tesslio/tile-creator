@@ -3,10 +3,7 @@ name: CI
 on:
   pull_request:
     paths:
-      - "tile.json"
-      - "SKILL.md"
-      - "references/**"
-      - "scripts/**"
+      - "tile-creator/**"
 
 concurrency:
   group: ci-${{ github.head_ref }}
@@ -24,12 +21,12 @@ jobs:
 
       - name: Check version was bumped
         run: |
-          if ! BASE_VERSION=$(git show origin/${{ github.base_ref }}:tile.json 2>/dev/null | jq -r '.version'); then
+          if ! BASE_VERSION=$(git show origin/${{ github.base_ref }}:tile-creator/tile.json 2>/dev/null | jq -r '.version'); then
             echo "No tile.json on base branch yet — skipping version check."
             exit 0
           fi
 
-          PR_VERSION=$(jq -r '.version' tile.json)
+          PR_VERSION=$(jq -r '.version' tile-creator/tile.json)
 
           echo "Base version: $BASE_VERSION"
           echo "PR version:   $PR_VERSION"
@@ -47,7 +44,7 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # tag v5.0.0
 
       - name: Lint tile
-        run: npx @tessl/cli tile lint .
+        run: npx @tessl/cli tile lint tile-creator
 
 permissions:
   contents: read

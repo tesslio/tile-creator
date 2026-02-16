@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - "tile.json"
+      - "tile-creator/**"
 
 concurrency:
   group: cd
@@ -20,7 +20,7 @@ jobs:
       - name: Publish tile
         env:
           TESSL_TOKEN: ${{ secrets.TESSL_TOKEN }}
-        run: npx @tessl/cli tile publish .
+        run: npx @tessl/cli tile publish tile-creator
 
 permissions:
   contents: read
