@@ -45,7 +45,7 @@ Parameters:
 - `rules`: rule name for rules tiles
 - `skill`: `{"name": "skill-name", "description": "..."}` for skill tiles
 - `describes`: purl string for package docs
-- `isPrivate`: boolean, defaults to true
+- `isPrivate`: boolean, defaults to true. **Ask the user** whether this tile should be public or private — the default is private, meaning only workspace members can discover and install it.
 
 ### Option B: CLI
 
@@ -61,6 +61,8 @@ tessl tile new \
 ```
 
 **Critical**: Always pass `--workspace` — omitting it triggers an interactive prompt that blocks execution. The `--workspace` value must match the prefix of `--name` (e.g., if `--name local/foo`, then `--workspace local`).
+
+**Visibility**: Tiles are **private by default**. Ask the user whether the tile should be publicly discoverable or restricted to their workspace. To make it public, add `--public` to the CLI command or set `"private": false` in tile.json. This is a manual setting — it is not gated by quality score or any validation process.
 
 See [CLI commands](./references/cli-commands.md) for full flag reference.
 

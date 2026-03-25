@@ -1,0 +1,31 @@
+{
+  "context": "Tests whether the agent creates a next-steps.sh script with correct quality checks for a docs-only tile: tessl scenario generate and tessl eval run, but NO tessl skill review (no skills in this tile).",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "next-steps.sh includes scenario generate",
+      "max_score": 30,
+      "description": "next-steps.sh contains a tessl scenario generate command for the tile."
+    },
+    {
+      "name": "next-steps.sh includes eval run",
+      "max_score": 10,
+      "description": "next-steps.sh contains a tessl eval run command for the tile."
+    },
+    {
+      "name": "next-steps.sh does not include skill review",
+      "max_score": 20,
+      "description": "next-steps.sh does NOT contain tessl skill review since this tile has no skills."
+    },
+    {
+      "name": "Valid docs tile",
+      "max_score": 25,
+      "description": "The tile has tile.json with docs field, docs/index.md, and docs/services.md with appropriate content."
+    },
+    {
+      "name": "Explicit private field",
+      "max_score": 15,
+      "description": "The tile.json contains an explicit \"private\" field (either true or false)."
+    }
+  ]
+}

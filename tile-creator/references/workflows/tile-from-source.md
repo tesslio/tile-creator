@@ -41,7 +41,9 @@ For converting existing repos, docs folders, or packages into tiles.
    - For packages: include `describes` field with purl
    - For non-packages: omit `describes`
 
-8. **Validate and interpret lint output**:
+8. **Set visibility**: Ask the user whether this tile should be public (discoverable by anyone) or private (workspace-only). The default is private. To make it public, set `"private": false` in tile.json or use the `--public` CLI flag. Visibility is a manual setting — it is not gated by quality score or any review process.
+
+9. **Validate and interpret lint output**:
 
    ```bash
    tessl tile lint /absolute/path/to/tile
@@ -54,7 +56,14 @@ For converting existing repos, docs folders, or packages into tiles.
 
    Fix errors, re-run lint until errors are resolved. Report remaining warnings to the user with explanation.
 
-9. **Report**: Summarize what was created, note any gaps or assumptions for user review
+10. **Report**: Summarize what was created, note any gaps or assumptions for user review
+
+11. **Next steps**: After the tile passes lint, create a `next-steps.sh` script in the tile root that runs quality checks for this tile. The script should:
+   - Run `tessl skill review <path-to-skill>` for each skill in the tile (skip if no skills)
+   - Run `tessl scenario generate <tile-path>` to generate eval scenarios
+   - Run `tessl eval run <tile-path>` to evaluate the tile
+
+   Make the script executable. Tell the user to review it and run it when ready.
 
 ### Index.md Structure
 

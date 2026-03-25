@@ -1,0 +1,21 @@
+{
+  "context": "Tests whether the agent explicitly sets the private field in tile.json rather than omitting it and accepting the default.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "Explicit private field in tile.json",
+      "max_score": 45,
+      "description": "The tile.json contains an explicit \"private\" field (either true or false), not omitted."
+    },
+    {
+      "name": "Does not conflate with quality",
+      "max_score": 25,
+      "description": "No file in the tile contains text suggesting visibility is tied to quality score, validation, or any review process."
+    },
+    {
+      "name": "Creates valid tile",
+      "max_score": 30,
+      "description": "The tile has tile.json with correct required fields (name, version, summary) and docs/index.md with REST convention content."
+    }
+  ]
+}

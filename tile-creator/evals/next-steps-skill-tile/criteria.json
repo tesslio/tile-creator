@@ -1,0 +1,31 @@
+{
+  "context": "Tests whether the agent creates a next-steps.sh script with the correct quality checks for a skill tile: tessl skill review for the skill AND tessl scenario generate / tessl eval run for evals.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "next-steps.sh includes skill review",
+      "max_score": 25,
+      "description": "next-steps.sh contains a tessl skill review command targeting the deploy skill."
+    },
+    {
+      "name": "next-steps.sh includes scenario generate and eval run",
+      "max_score": 30,
+      "description": "next-steps.sh references both tessl scenario generate and tessl eval run for the tile, either as direct commands or as instructions to the user."
+    },
+    {
+      "name": "Valid skill tile",
+      "max_score": 20,
+      "description": "The tile has a valid tile.json with skills section and a SKILL.md with proper frontmatter (name, description) and deployment content."
+    },
+    {
+      "name": "Explicit private field",
+      "max_score": 10,
+      "description": "The tile.json contains an explicit \"private\" field (either true or false)."
+    },
+    {
+      "name": "next-steps.sh is executable",
+      "max_score": 15,
+      "description": "next-steps.sh exists in the tile root and has a shebang line (#!/usr/bin/env bash or similar)."
+    }
+  ]
+}
