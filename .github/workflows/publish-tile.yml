@@ -14,8 +14,8 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: tesslio/publish@main
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # tag v6.0.2
+      - uses: tesslio/publish@dcef29a61e77d536ca82c7582d5225361862a644 # tag 1.0
         with:
           token: ${{ secrets.TESSL_TOKEN }}
           path: "./tile-creator/"
