@@ -1,16 +1,16 @@
 {
-  "context": "Tests whether the agent creates a next-steps.sh script with correct quality checks for a docs-only tile: tessl scenario generate and tessl eval run, but NO tessl skill review (no skills in this tile).",
+  "context": "Tests whether the agent creates a next-steps.sh script with correct quality checks for a docs-only tile: tessl scenario generate to kick off evals, instructions for tessl eval run, and NO tessl skill review.",
   "type": "weighted_checklist",
   "checklist": [
     {
-      "name": "next-steps.sh includes scenario generate",
+      "name": "next-steps.sh runs scenario generate",
       "max_score": 30,
-      "description": "next-steps.sh contains a tessl scenario generate command for the tile."
+      "description": "next-steps.sh runs tessl scenario generate as a direct command (not just printed or echoed)."
     },
     {
-      "name": "next-steps.sh includes eval run",
+      "name": "next-steps.sh mentions eval run as follow-up",
       "max_score": 10,
-      "description": "next-steps.sh contains a tessl eval run command for the tile."
+      "description": "next-steps.sh references tessl eval run, either as a direct command or as a printed instruction for the user to run after reviewing scenarios."
     },
     {
       "name": "next-steps.sh does not include skill review",

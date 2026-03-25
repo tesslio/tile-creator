@@ -31,12 +31,12 @@ For creating new tiles that are based on already existing context, such as docum
 
    Fix errors, re-run lint until errors are resolved. Report remaining warnings to the user with explanation.
 
-8. **Next steps**: After the tile passes lint, create a `next-steps.sh` script in the tile root that runs quality checks for this tile. The script should:
+8. **Next steps**: After the tile passes lint, create a `next-steps.sh` script in the tile root. The script should:
    - Run `tessl skill review <path-to-skill>` for each skill in the tile (skip if no skills)
-   - Run `tessl scenario generate <tile-path>` to generate eval scenarios
-   - Run `tessl eval run <tile-path>` to evaluate the tile
+   - Run `tessl scenario generate <tile-path>` to kick off eval scenario generation
+   - Print instructions for the user: once generation completes, run `tessl scenario download <id>`, review the scenarios, then run `tessl eval run <tile-path>`
 
-   Make the script executable. Tell the user to review it and run it when ready.
+   Make the script executable. Tell the user to run it.
 
 ### Tile Structure
 

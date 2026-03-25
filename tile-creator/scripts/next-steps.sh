@@ -36,21 +36,19 @@ def main():
         steps.append({
             "step": 1,
             "action": "review",
-            "description": "Run skill review and optimize based on feedback",
-            "commands": review_cmds,
+            "run": review_cmds,
             "details": "Review scores description and content quality with actionable suggestions. Iterate: run review, apply suggestions, re-run until scores are satisfactory.",
         })
 
     steps.append({
         "step": len(steps) + 1,
         "action": "evals",
-        "description": "Generate and run eval scenarios",
-        "commands": [
-            f"tessl scenario generate {tile_path}",
+        "run": [f"tessl scenario generate {tile_path}"],
+        "then": [
             f"tessl scenario download <generation-id> --output {tile_path}/evals",
             f"tessl eval run {tile_path}",
         ],
-        "details": "Generate eval scenarios, download them, review for correctness and coverage, then run to verify the tile behaves as expected.",
+        "details": "Scenario generation is async. After it completes, download scenarios, review for correctness, then run evals.",
     })
 
     result = {
