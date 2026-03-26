@@ -1,9 +1,5 @@
-# Create a Deployment Skill Tile
+# Create a Skill Tile and Suggest Next Steps
 
-Create a skill tile at /tmp/deploy-helper with:
-- name: "acme/deploy-helper"
-- summary: "Automated deployment workflows"
-- A skill named "deploy" with description "Deploy services to staging or production"
-- SKILL.md with steps: check branch, run tests, build, deploy
+Create a tile at /tmp/deploy-tile with name "acme/deploy-helper", summary "Deployment workflows", containing a skill named "deploy" with description "Deploy to staging or production". The SKILL.md should have basic deployment steps.
 
-Follow the full workflow through to the next-steps phase.
+After creating the tile, suggest what the user should do next to improve quality.

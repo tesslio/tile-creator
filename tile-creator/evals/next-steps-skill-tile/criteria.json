@@ -1,36 +1,26 @@
 {
-  "context": "Tests whether the agent creates a next-steps.sh script with the correct quality checks for a skill tile: tessl skill review for the skill, tessl scenario generate to kick off evals, and instructions for tessl eval run as a follow-up.",
+  "context": "Tests whether the agent suggests both skill review and eval generation as next steps after creating a skill tile.",
   "type": "weighted_checklist",
   "checklist": [
     {
-      "name": "next-steps.sh includes skill review",
+      "name": "Suggests tessl skill review",
       "max_score": 25,
-      "description": "next-steps.sh contains a tessl skill review command targeting the deploy skill."
+      "description": "The agent tells the user to run tessl skill review on the deploy skill."
     },
     {
-      "name": "next-steps.sh runs scenario generate",
+      "name": "Suggests tessl scenario generate",
       "max_score": 25,
-      "description": "next-steps.sh runs tessl scenario generate as a direct command (not just printed or echoed)."
-    },
-    {
-      "name": "next-steps.sh mentions eval run as follow-up",
-      "max_score": 10,
-      "description": "next-steps.sh references tessl eval run, either as a direct command or as a printed instruction for the user to run after reviewing scenarios."
+      "description": "The agent tells the user to run tessl scenario generate to create eval scenarios for the tile."
     },
     {
       "name": "Valid skill tile",
-      "max_score": 20,
+      "max_score": 25,
       "description": "The tile has a valid tile.json with skills section and a SKILL.md with proper frontmatter (name, description) and deployment content."
     },
     {
       "name": "Explicit private field",
-      "max_score": 10,
+      "max_score": 25,
       "description": "The tile.json contains an explicit \"private\" field (either true or false)."
-    },
-    {
-      "name": "next-steps.sh is executable",
-      "max_score": 10,
-      "description": "next-steps.sh exists in the tile root and has a shebang line (#!/usr/bin/env bash or similar)."
     }
   ]
 }

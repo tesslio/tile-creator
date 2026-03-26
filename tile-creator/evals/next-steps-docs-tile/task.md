@@ -6,4 +6,4 @@ Create a documentation tile at /tmp/docs-tile with:
 - docs/index.md covering microservices architecture
 - docs/services.md listing the main services
 
-Complete all workflow steps including the next-steps phase.
+Complete all workflow steps including next steps.
