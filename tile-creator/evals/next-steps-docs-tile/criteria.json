@@ -5,7 +5,7 @@
     {
       "name": "Suggests tessl scenario generate",
       "max_score": 30,
-      "description": "The agent tells the user to run tessl scenario generate to create eval scenarios for the tile."
+      "description": "The agent tells the user to run tessl scenario generate to create eval scenarios."
     },
     {
       "name": "Does not suggest skill review",

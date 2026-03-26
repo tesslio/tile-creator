@@ -1,5 +1,5 @@
 {
-  "context": "Tests whether the agent suggests both skill review and eval generation as next steps after creating a skill tile.",
+  "context": "Tests whether the agent suggests both skill review and eval generation as next steps for a skill tile.",
   "type": "weighted_checklist",
   "checklist": [
     {
