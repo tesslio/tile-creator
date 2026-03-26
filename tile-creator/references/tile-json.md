@@ -80,6 +80,7 @@ pkg:<ecosystem>/<name>@<version>
   "name": "myorg/deploy-tools",
   "version": "1.0.0",
   "summary": "Deployment automation skills",
+  "private": true,
   "skills": {
     "deploy-staging": { "path": "skills/deploy-staging/SKILL.md" },
     "deploy-prod": { "path": "skills/deploy-prod/SKILL.md" }

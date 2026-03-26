@@ -72,6 +72,12 @@ See [CLI commands](./references/cli-commands.md) for full flag reference.
 
 After scaffolding, validate with: `tessl tile lint /absolute/path/to/tile`
 
+## After Lint Passes
+
+Always suggest these next steps to the user:
+- **Skill review** (only if the tile has skills): `tessl skill review <path-to-skill>` — scores description and content quality with actionable suggestions. Iterate until satisfactory.
+- **Evals** (always, for every tile): `tessl scenario generate <tile-path>` — generates eval scenarios. Once complete, download with `tessl scenario download <id>`, review for correctness, then run with `tessl eval run <tile-path>`.
+
 ## Workflows
 
 Choose the most relevant workflow based on your task:
@@ -111,9 +117,10 @@ Include the `describes` field with a purl:
 {
   "name": "tessl/npm-example",
   "version": "2.0.0",
+  "summary": "TypeScript SDK for Example API",
+  "private": false,
   "docs": "docs/index.md",
-  "describes": "pkg:npm/example-sdk@2.0.0",
-  "summary": "TypeScript SDK for Example API"
+  "describes": "pkg:npm/example-sdk@2.0.0"
 }
 ```
 
