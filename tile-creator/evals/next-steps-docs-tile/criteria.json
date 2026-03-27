@@ -1,0 +1,26 @@
+{
+  "context": "Tests whether the agent suggests eval generation but NOT skill review for a docs-only tile.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "Suggests tessl scenario generate",
+      "max_score": 30,
+      "description": "The agent tells the user to run tessl scenario generate to create eval scenarios."
+    },
+    {
+      "name": "Does not suggest skill review",
+      "max_score": 20,
+      "description": "The agent does NOT suggest tessl skill review since this tile has no skills."
+    },
+    {
+      "name": "Valid docs tile",
+      "max_score": 25,
+      "description": "The tile has tile.json with docs field, docs/index.md, and docs/services.md with appropriate content."
+    },
+    {
+      "name": "Explicit private field",
+      "max_score": 25,
+      "description": "The tile.json contains an explicit \"private\" field (either true or false)."
+    }
+  ]
+}

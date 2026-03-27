@@ -1,0 +1,26 @@
+{
+  "context": "Tests whether the agent suggests both skill review and eval generation as next steps for a skill tile.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "Suggests tessl skill review",
+      "max_score": 25,
+      "description": "The agent tells the user to run tessl skill review on the deploy skill."
+    },
+    {
+      "name": "Suggests tessl scenario generate",
+      "max_score": 25,
+      "description": "The agent tells the user to run tessl scenario generate to create eval scenarios for the tile."
+    },
+    {
+      "name": "Valid skill tile",
+      "max_score": 25,
+      "description": "The tile has a valid tile.json with skills section and a SKILL.md with proper frontmatter (name, description) and deployment content."
+    },
+    {
+      "name": "Explicit private field",
+      "max_score": 25,
+      "description": "The tile.json contains an explicit \"private\" field (either true or false)."
+    }
+  ]
+}

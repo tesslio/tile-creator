@@ -1,0 +1,21 @@
+{
+  "context": "The user thinks their tile isn't public because quality validation hasn't completed. The tile.json has \"private\": true. The agent must fix tile.json.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "Fixes private to false",
+      "max_score": 40,
+      "description": "The tile.json is changed so that \"private\" is set to false, making the tile publicly discoverable."
+    },
+    {
+      "name": "Identifies private setting as the cause",
+      "max_score": 30,
+      "description": "The agent's output (visible in any created or modified file, or in the assessment context) indicates that \"private\": true was the root cause, not quality score."
+    },
+    {
+      "name": "Does not reinforce misconception",
+      "max_score": 30,
+      "description": "No file in the solution suggests quality score gates visibility or that the user needs to wait for validation."
+    }
+  ]
+}

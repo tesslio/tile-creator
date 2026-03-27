@@ -1,0 +1,26 @@
+{
+  "context": "Tests whether the agent correctly interprets 'open-source' / 'anyone can find' intent and sets the tile to public.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "Sets tile to public",
+      "max_score": 35,
+      "description": "The tile.json contains \"private\": false."
+    },
+    {
+      "name": "Includes describes field",
+      "max_score": 25,
+      "description": "The tile.json includes a describes field with proper PURL format (pkg:npm/logging-sdk@3.2.0)."
+    },
+    {
+      "name": "Valid tile structure",
+      "max_score": 20,
+      "description": "The tile has tile.json, docs/index.md, and docs/api.md with appropriate content."
+    },
+    {
+      "name": "API markers used",
+      "max_score": 20,
+      "description": "The docs use { .api } markers for API signatures since this is a package documentation tile."
+    }
+  ]
+}

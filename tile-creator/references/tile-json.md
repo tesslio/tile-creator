@@ -14,7 +14,7 @@ The manifest file that defines a tile's metadata and content locations.
 
 | Field       | Type    | Description                                         |
 | ----------- | ------- | --------------------------------------------------- |
-| `private`   | boolean | `true` (default) = workspace-only, `false` = public |
+| `private`   | boolean | `true` (default) = workspace-only, `false` = public. This is an access control setting — it is not tied to quality score or validation. Set it explicitly based on intended audience. |
 | `docs`      | string  | Path to docs entry point (e.g., `docs/index.md`)    |
 | `describes` | string  | PURL of external package this documents             |
 | `steering`  | object  | Map of rule names to rule files                     |
@@ -80,6 +80,7 @@ pkg:<ecosystem>/<name>@<version>
   "name": "myorg/deploy-tools",
   "version": "1.0.0",
   "summary": "Deployment automation skills",
+  "private": true,
   "skills": {
     "deploy-staging": { "path": "skills/deploy-staging/SKILL.md" },
     "deploy-prod": { "path": "skills/deploy-prod/SKILL.md" }

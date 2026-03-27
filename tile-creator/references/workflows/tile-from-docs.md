@@ -17,7 +17,9 @@ For creating new tiles that are based on already existing context, such as docum
 
 5. **Edit copied files in place**: Modify the already-copied files to match the required format. Do NOT rewrite from scratch — make targeted edits for clarity, structure, and agent efficiency. Write new markdown files only where gaps exist.
 
-6. **Validate and interpret lint output**:
+6. **Set visibility**: Ask the user whether this tile should be public (discoverable by anyone) or private (workspace-only). The default is private. To make it public, set `"private": false` in tile.json or use the `--public` CLI flag. Visibility is a manual setting — it is not gated by quality score or any review process.
+
+7. **Validate and interpret lint output**:
    ```bash
    tessl tile lint /absolute/path/to/tile
    ```
@@ -28,6 +30,10 @@ For creating new tiles that are based on already existing context, such as docum
    - **Token counts**: informational, no action needed unless unusually high
 
    Fix errors, re-run lint until errors are resolved. Report remaining warnings to the user with explanation.
+
+8. **Next steps**: After the tile passes lint, suggest the following to the user:
+   - **Skill review** (only if the tile has skills): Run `tessl skill review <path-to-skill>` and optimize based on feedback. Iterate until scores are satisfactory.
+   - **Evals** (always): Run `tessl scenario generate <tile-path>` to generate eval scenarios. Once complete, download with `tessl scenario download <id>`, review for correctness, then run with `tessl eval run <tile-path>`.
 
 ### Tile Structure
 
